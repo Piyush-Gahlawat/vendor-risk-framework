@@ -1,4 +1,4 @@
-Vendor Name,Data Sensitivity (1-5),Breach Likelihood (1-5),Total Risk Score (Multiply),Risk Tier (Formula),Action Required
-Example: AWS,4,2,8,High,Annual review
-Example: Local Cleaning,1,1,1,Low,None
-Example: HR Software,5,4,20,Critical,Immediate audit
+Vendor Name	Data Sensitivity (1-5)	Breach Likelihood (1-5)	Total Risk Score (Multiply)	Risk Tier (Formula)	Action Required
+Example: AWS	4	2	8	High	Annual review
+Example: Local Cleaning	1	1	1	Low	None
+Example: HR Software	5	4	20	Critical	Immediate audit

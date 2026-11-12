@@ -85,3 +85,35 @@ Items marked with **🔴 [MANDATORY]** are the absolute bare minimum. They repre
 ### ⚖️ When a Vendor Fails the Bare Minimum (Risk Acceptance)
 What happens if a vendor fails a **🔴 [MANDATORY]** question, but the business absolutely requires their software? 
 You do not automatically reject them; you escalate. The business owner and the CISO must sign a formal **Risk Acceptance Form** acknowledging the gap. Alternatively, you can require a **Compensating Control** (e.g., if the vendor lacks MFA, you mandate that they only access your data via an IP-whitelisted VPN).
+
+---
+
+## ⚙️ Appendix: Excel Formula Logic & Configuration
+
+If your spreadsheet software (like Google Sheets or LibreOffice) does not automatically calculate the logic when you open the `.xlsx` templates, you can apply the following formulas manually.
+
+### 1. Risk Scoring Matrix (`02_Risk_Scoring_Matrix.xlsx`)
+
+**A. Total Risk Score (Column D)**
+To calculate the risk score, multiply the Data Sensitivity by the Breach Likelihood. 
+*   *Formula for Cell D2:* `=B2*C2`
+*   *(Drag this formula down to apply it to all rows).*
+
+**B. Risk Tier Assignment (Column E)**
+To automatically assign the Risk Tier based on the score.
+*   *Formula for Cell E2:* `=IF(D2>=15, "Critical", IF(D2>=8, "High", IF(D2>=4, "Medium", "Low")))`
+*   *(Drag this formula down to apply it to all rows).*
+
+### 2. Vendor Register (`03_Vendor_Register_Template.xlsx`)
+
+**A. SLA Breach Status (Column J)**
+To automatically compare the Delivered SLA (Column I) against the Guaranteed SLA (Column H) and flag a breach.
+*   *Formula for Cell J2:* `=IF(I2<H2, "BREACH", "MET")`
+*   *(Drag this formula down to apply it to all rows).*
+*   *Note: If a vendor's SLA is marked "N/A", the formula will default to "MET" to prevent errors.*
+
+### 3. Conditional Formatting (The Visual Dashboard)
+To make the spreadsheet look like a live dashboard, apply these color rules to the respective columns:
+*   **Column C (Risk Tier):** Highlight cells containing "Critical" (Red), "High" (Orange), "Medium" (Yellow), and "Low" (Green).
+*   **Column J (SLA Breach Status):** Highlight cells containing "BREACH" (Red) and "MET" (Green).
+*   **Column M (Open Critical Findings):** Highlight cells with a value "Greater than 0" (Red).

@@ -1,0 +1,4 @@
+Vendor Name,Service Provided,Risk Tier,Contract Owner,Start Date,Renewal Date,Annual Cost,SLA Uptime Guarantee (%),Delivered SLA (%),SLA Breach Status,Penalty Enforced? (Y/N),Compliance Score (%),Open Critical Findings
+Cloudflare,Hosting & CDN,High,Piyush,11/01/26,11/01/27,0.00,99.90%,99.95%,MET,N,98.00%,0
+Legacy Mail Provider,Email Hosting,High,Piyush,01/01/25,01/01/27,50000.00,99.90%,99.50%,BREACH,Y,85.00%,2
+Example: Local Cleaning,Facilities,Low,Piyush,03/01/26,03/01/27,12000.00,N/A,N/A,N/A,N,100.00%,0

@@ -108,9 +108,9 @@ To automatically assign the Risk Tier based on the score.
 
 **A. SLA Breach Status (Column J)**
 To automatically compare the Delivered SLA (Column I) against the Guaranteed SLA (Column H) and flag a breach.
-*   *Formula for Cell J2:* `=IF(I2<H2, "BREACH", "MET")`
+*   *Formula for Cell J2:* `=IF(OR(H2="N/A", I2="N/A"), "N/A", IF(I2<H2, "BREACH", "MET"))`
 *   *(Drag this formula down to apply it to all rows).*
-*   *Note: If a vendor's SLA is marked "N/A", the formula will default to "MET" to prevent errors.*
+*  Note: If a vendor's SLA is marked "N/A", the formula will output "N/A" to prevent false breach flags.
 
 ### 3. Conditional Formatting (The Visual Dashboard)
 To make the spreadsheet look like a live dashboard, apply these color rules to the respective columns:
